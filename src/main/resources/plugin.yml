@@ -1,0 +1,8 @@
+name: Zkgens
+version: '${project.version}'
+main: fr.blquatre.zknetwork.zkgens.Zkgens
+api-version: 1.19
+authors: [ BL4 ]
+commands:
+  generator:
+    description: "Wow!"
