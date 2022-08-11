@@ -1,0 +1,32 @@
+generators:
+  wheat:
+    block:
+      material: WHEAT_BLOCK
+      modelData: 1
+      displayName: "Wheat Gen"
+      lore:
+        - "Wow"
+        - "Wow2"
+    item:
+      material: WHEAT
+      modelData: 1
+      displayName: "Blé [Lvl.1]"
+      lore:
+        - "&r"
+        - "30 dollars au shop"
+  diamond:
+    price: 2000
+    block:
+      material: DIAMOND_BLOCK
+      modelData: 1
+      displayName: "Diamond Gen"
+      lore:
+        - "Wiw"
+        - "Wiw2"
+    item:
+      material: WHEAT
+      modelData: 1
+      displayName: "Diamond [Lvl.2]"
+      lore:
+        - "&r"
+        - "100 dollars au shop"
