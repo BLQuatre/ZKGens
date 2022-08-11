@@ -1,6 +1,5 @@
-package fr.blquatre.zknetwork.zkgens.handlers;
+package fr.blquatre.zknetwork.zkgens;
 
-import fr.blquatre.zknetwork.zkgens.Zkgens;
 import fr.blquatre.zknetwork.zkgens.utils.Messages;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -11,8 +10,13 @@ import org.bukkit.persistence.PersistentDataType;
 import java.util.List;
 
 public class Generator {
-    private final NamespacedKey idKey = new NamespacedKey(Zkgens.getPlugin(Zkgens.class), "idKey");
+    private static final NamespacedKey genId = new NamespacedKey(Zkgens.getPlugin(Zkgens.class), "genId");
+    public static NamespacedKey getGenId() {
+        return genId;
+    }
     private final String id;
+    private final int price;
+    private final int time;
     // Block's info
     private final Material blockMaterial;
     private final int blockModelData;
@@ -25,8 +29,10 @@ public class Generator {
 
     private final List<String> itemLore;
 
-    public Generator(String id, Material blockMaterial, int blockModelData, String blockDisplayName, List<String> blockLore, Material itemMaterial, int itemModelData, String itemDisplayName, List<String> itemLore) {
+    public Generator(String id, int price, int time, Material blockMaterial, int blockModelData, String blockDisplayName, List<String> blockLore, Material itemMaterial, int itemModelData, String itemDisplayName, List<String> itemLore) {
         this.id = id;
+        this.price = price;
+        this.time = time;
         this.blockMaterial = blockMaterial;
         this.blockModelData = blockModelData;
         this.blockDisplayName = blockDisplayName;
@@ -37,6 +43,19 @@ public class Generator {
         this.itemLore = itemLore;
     }
 
+    public String getId() {
+        return id;
+    }
+    public String getBlockDisplayName() {
+        return blockDisplayName;
+    }
+    public int getPrice() {
+        return price;
+    }
+    public int getTime() {
+        return time;
+    }
+
     public ItemStack getBlock() {
         ItemStack item = new ItemStack(blockMaterial, 1);
 
@@ -44,7 +63,7 @@ public class Generator {
         meta.setCustomModelData(blockModelData);
         meta.displayName(Messages.formatC(blockDisplayName, false));
         meta.lore(Messages.formatListC(blockLore));
-        meta.getPersistentDataContainer().set(idKey, PersistentDataType.STRING, id);
+        meta.getPersistentDataContainer().set(genId, PersistentDataType.STRING, id);
         item.setItemMeta(meta);
 
         return item;
@@ -56,7 +75,7 @@ public class Generator {
         meta.setCustomModelData(itemModelData);
         meta.displayName(Messages.formatC(itemDisplayName, false));
         meta.lore(Messages.formatListC(itemLore));
-        meta.getPersistentDataContainer().set(idKey, PersistentDataType.STRING, id);
+        meta.getPersistentDataContainer().set(genId, PersistentDataType.STRING, id);
         item.setItemMeta(meta);
 
         return item;

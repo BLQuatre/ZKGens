@@ -6,3 +6,5 @@ authors: [ BL4 ]
 commands:
   generator:
     description: "Wow!"
+  givegenerator:
+    description: "Give un générateur"

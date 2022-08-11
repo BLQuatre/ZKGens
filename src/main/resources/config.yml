@@ -1,5 +1,7 @@
 generators:
   wheat:
+    price: 5000
+    time: 5
     block:
       material: WHEAT_BLOCK
       modelData: 1
@@ -15,7 +17,8 @@ generators:
         - "&r"
         - "30 dollars au shop"
   diamond:
-    price: 2000
+    price: 10000
+    time: 3
     block:
       material: DIAMOND_BLOCK
       modelData: 1
@@ -30,3 +33,6 @@ generators:
       lore:
         - "&r"
         - "100 dollars au shop"
+
+messages:
+  generatorPlaced: "&aTu viens de placer un générateur !"

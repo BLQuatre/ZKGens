@@ -1,4 +1,4 @@
-package fr.blquatre.zknetwork.zkgens.file;
+package fr.blquatre.zknetwork.zkgens.utils;
 
 import fr.blquatre.zknetwork.zkgens.Zkgens;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class FileManager {
-    private static final Zkgens PLUGIN = Zkgens.getPlugin();
+    private static final Zkgens PLUGIN = Zkgens.getPlugin(Zkgens.class);
 
     public static void createFile(String fileName) {
         if (!PLUGIN.getDataFolder().exists()) {
